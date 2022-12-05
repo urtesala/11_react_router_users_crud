@@ -49,7 +49,7 @@ function UsersPage(props) {
         {usersArr.map((uObj) => (
           <li key={uObj.id}>
             <UserLink to={'#'}>
-              {uObj.firstName} {uObj.lastName}
+              {uObj.firstName} {uObj.lastName} (id:{uObj.id})
             </UserLink>
           </li>
         ))}

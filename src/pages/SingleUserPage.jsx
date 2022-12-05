@@ -1,11 +1,10 @@
 import { Section, Title } from '../components/UI.styled';
 
-function HomePage(props) {
+function SingleUserPage(props) {
   return (
     <Section>
-      <Title>Home Page</Title>
-      <p>welcome</p>
+      <Title>Single user page</Title>
     </Section>
   );
 }
-export default HomePage;
+export default SingleUserPage;

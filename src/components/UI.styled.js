@@ -8,3 +8,8 @@ export const Section = styled.section`
   margin-right: auto;
   padding: 0 20px;
 `;
+export const Title = styled.h1`
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 0.4em;
+`;
