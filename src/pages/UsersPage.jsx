@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Section } from '../components/UI.styled';
+import { getData } from '../helper';
 
 const UserLink = styled(Link)`
   padding: 0.5em 1em;
@@ -20,24 +21,24 @@ function UsersPage(props) {
   const [usersArr, setUsersArr] = useState([]);
   // su useEffect supildyti state su duomenimis is https://dummyjson.com/users
   useEffect(() => {
-    getData();
+    getData(setUsersArr);
   }, []);
 
-  async function getData() {
-    try {
-      let url = 'https://dummyjson.com/users';
-      url = '/api/users.json';
-      const resp = await fetch(url);
-      const dataInJs = await resp.json();
+  //   async function getData() {
+  //     try {
+  //       let url = 'https://dummyjson.com/users/';
+  //       url = '/api/users.json';
+  //       const resp = await fetch(url);
+  //       const dataInJs = await resp.json();
 
-      // dataInJs === {users: Array(30), total: 100, skip: 0, limit: 30}
-      console.log('dataInJs ===', dataInJs.users);
-      // set state
-      setUsersArr(dataInJs.users);
-    } catch (error) {
-      console.warn('klaida getData', error);
-    }
-  }
+  //       // dataInJs === {users: Array(30), total: 100, skip: 0, limit: 30}
+  //       console.log('dataInJs ===', dataInJs.users);
+  //       // set state
+  //       setUsersArr(dataInJs.users);
+  //     } catch (error) {
+  //       console.warn('klaida getData', error);
+  //     }
+  //   }
 
   return (
     <Section>

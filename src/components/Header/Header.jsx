@@ -15,11 +15,14 @@ const ThisContainer = styled(Container)`
 
 const Nav = styled.nav``;
 
-const LinkTo = styled(Link)`
+const LinkTo = styled(NavLink)`
   display: inline-block;
   padding: 0.4em 1em;
   color: inherit;
   font-size: 1.1rem;
+  &.active {
+    border-bottom: 4px solid #fff;
+  }
 `;
 
 const Logo = styled(Link)`
@@ -35,7 +38,9 @@ function Header(props) {
       <ThisContainer>
         <Logo>ReactRouter</Logo>
         <Nav>
-          <LinkTo to='/'>Home</LinkTo>
+          <LinkTo to='/' exact>
+            Home
+          </LinkTo>
           <LinkTo to='/users'>Users</LinkTo>
         </Nav>
       </ThisContainer>
