@@ -48,7 +48,7 @@ function UsersPage(props) {
         {/* is usersArr pagaminti li elementus su vardu ir pavarde */}
         {usersArr.map((uObj) => (
           <li key={uObj.id}>
-            <UserLink to={'#'}>
+            <UserLink to={`/users/${uObj.id}`}>
               {uObj.firstName} {uObj.lastName} (id:{uObj.id})
             </UserLink>
           </li>
