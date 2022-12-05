@@ -1,5 +1,19 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { Section } from '../components/UI.styled';
+
+const UserLink = styled(Link)`
+  padding: 0.5em 1em;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 4px;
+  &:hover {
+    background-color: #fff;
+  }
+`;
 
 function UsersPage(props) {
   // susikurti usersArr state
@@ -34,7 +48,9 @@ function UsersPage(props) {
         {/* is usersArr pagaminti li elementus su vardu ir pavarde */}
         {usersArr.map((uObj) => (
           <li key={uObj.id}>
-            {uObj.firstName} {uObj.lastName}
+            <UserLink to={'#'}>
+              {uObj.firstName} {uObj.lastName}
+            </UserLink>
           </li>
         ))}
       </ol>
