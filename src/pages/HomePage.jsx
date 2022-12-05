@@ -1,9 +1,18 @@
+import styled from 'styled-components';
+import Section from '../components/UI.styled';
+
+const Title = styled.h1`
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 0.4em;
+`;
+
 function HomePage(props) {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <Section>
+      <Title>Home Page</Title>
       <p>welcome</p>
-    </div>
+    </Section>
   );
 }
 export default HomePage;
