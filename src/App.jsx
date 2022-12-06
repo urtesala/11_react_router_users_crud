@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage';
+import NotFound from './pages/NotFound';
 import SingleUserPage from './pages/SingleUserPage';
 import UsersPage from './pages/UsersPage';
 import './reset.css';
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path={'/'} exact>
           <HomePage />
+        </Route>
+        <Route path={'*'}>
+          <NotFound />
         </Route>
       </Switch>
     </div>
