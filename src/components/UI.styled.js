@@ -18,3 +18,10 @@ export const Title = styled.h1`
   font-weight: normal;
   margin-bottom: 0.4em;
 `;
+export const Icon = styled.i.attrs((props) => ({
+  className: `fa fa-${props.icon}`,
+  ariaHidden: true,
+}))`
+  font-size: 24px;
+  margin: 10px;
+`;

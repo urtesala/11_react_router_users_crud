@@ -1,6 +1,7 @@
-import { Section, Title } from '../components/styled/UI.styled';
+
 
 import { Link } from 'react-router-dom';
+import { Section, Title } from '../components/UI.styled';
 
 function NotFound(props) {
   return (

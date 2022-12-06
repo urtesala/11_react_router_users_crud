@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Section, Title } from '../components/UI.styled'
+import { Icon, Section, Title } from '../components/UI.styled';
 import { getData } from '../helper';
 
 const dummyUser = {
@@ -80,9 +80,11 @@ const UserImage = styled.img`
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid #333;
+  margin-top: 25px;
 `;
 
 function SingleUserPage(props) {
+  const history = useHistory();
   const allParams = useParams();
   const currentUserId = allParams.userId;
 
@@ -99,17 +101,22 @@ function SingleUserPage(props) {
   const fullName = `${currentUser.firstName} ${currentUser.lastName}`;
   return (
     <ThisSection>
-      <UserImage src={currentUser.image} alt={fullName} />
+      <button onClick={() => history.push('/users')}>Back to users</button>
+      {currentUser.image && (
+        <UserImage src={currentUser.image} alt={fullName} />
+      )}
       <h1>{fullName}</h1>
       <p>email</p>
       <p>
-        <i className='fa fa-phone-square' aria-hidden='true'></i> Tel
+        <Icon icon='phone-square' />
+        Tel: {currentUser.phone}
       </p>
       <p>
-        He|She is 180cm height, weights 80 km. Has a green eyes and brown
-        straight hair studies in university : uni
+        {currentUser.gender === 'male' ? 'He' : 'She'} is {currentUser.height}cm
+        height, weights {currentUser.weight} kg. Has a {currentUser.eyeColor}{' '}
+        eyes and {currentUser.hair?.color} {currentUser.hair?.type} hair,
+        studies in university : {currentUser.university}
       </p>
-      <p>I should load 🦸 with id: {currentUserId}</p>
     </ThisSection>
   );
 }
